@@ -1,0 +1,7 @@
+customtkinter==4.5.2
+idm==0.39
+playsound==1.3.0
+pygame==2.1.2
+pyperclip==1.8.2
+pywebview==3.6.3
+webview==0.1.5
