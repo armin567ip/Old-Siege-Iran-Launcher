@@ -1,18 +1,14 @@
 #importing libraries
-from turtle import bgcolor
-from playsound import playsound
-from math import fabs
-from tkinter import Menu, messagebox
+from tkinter import messagebox
 from idm import IDMan
 downloader = IDMan()
 import os
 from re import A
-import tkinter
 import customtkinter
 import pyperclip
 #Designing
 customtkinter.set_appearance_mode("dark")
-app = customtkinter.CTk()
+app = customtkinter.CTk()  # create CTk window like you do with the Tk window
 app.geometry("700x400")
 app.title("Old Siege Launcher")
 app.resizable(False,False)
@@ -28,8 +24,9 @@ app.geometry('%dx%d+%d+%d' % (w, h, x, y))
 #cc
 import pygame
 pygame.mixer.init()
-pygame.mixer.music.load("lib\Music.mp3")
+pygame.mixer.music.load("lib\Music.ogg")
 pygame.mixer.music.play(-1)
+#Default font size for old siege iran was 30
 whitetext = customtkinter.CTkLabel(text="                   Old Siege Iran                         ",fg_color="Grey27",text_font=("Helvetica 15 bold",30),text_color="PaleGreen2",width=700,height=20,)
 whitetext.place(x=100,y=0)
 def toggleMusic():
@@ -53,9 +50,18 @@ ctext.place(x=2,y=320)
 lcolor = customtkinter.CTkLabel(master=app, text="            ",bg_color="Grey65",height=9000,width=200)
 lcolor.place(x=1,y=1)
 
+#Web App Enter fixing
+import wmi
+c=wmi.WMI()
+def check_process_running(str_):
+    if(c.Win32_Process(name=str_)):
+        print("Process is running")
+    else:
+        os.startfile("lib\Old-Siege-Iran.exe")
 #defs
 def button_function():
-    os.startfile("lib\Old-Siege-Iran.exe")
+  check_process_running("Old-Siege-Iran.exe") 
+      
 def Closeapp():
     os.system("taskkill /im Old-Siege-Iran.exe /t /f")
 #Velvet shell links
@@ -204,6 +210,7 @@ def vp1c3():
     downloader.download(vurl7, r"c:\DOWNLOADS", output=None, referrer=None, cookie=None, postData=None, user=None, password=None, confirm = False, lflag = None, clip=False)
 vp2 = customtkinter.CTkButton(master=app,width=110,height=30,border_width=2,corner_radius=0,text="پارت 7",text_font="Tahoma",command=vp1c3)
 
+
 vp3.place(x=40,y=600)
 vpo.place(x=40,y=600)
 vp1.place(x=40,y=600)    
@@ -211,6 +218,7 @@ vp2.place(x=40,y=600)
 vp6.place(x=40,y=600)
 vp5.place(x=40,y=600)
 vp4.place(x=40,y=600) 
+
 #------------------
 a = 0
 def seaseonc():
@@ -260,21 +268,22 @@ def seaseonc():
         vp5.place(x=40,y=600)
         vp4.place(x=40,y=600) 
 # Buttons
-openapp = customtkinter.CTkButton(master=app, text="ورود به اپلیکیشن", command=button_function,text_font="Tahoma")
+openapp = customtkinter.CTkButton(master=app, text="ورود به وب اپلیکیشن", command=button_function,text_font=("Tahoma",10))
 openapp.place(x=400,y=320)
-closeapp = customtkinter.CTkButton(master=app, text="بستن اپلیکیشن", command=Closeapp,text_font="Tahoma")
+closeapp = customtkinter.CTkButton(master=app, text="بستن اپلیکیشن", command=Closeapp,text_font=("Tahoma",10))
 closeapp.place(x=548,y=320)
-changes = customtkinter.CTkButton(master=app, text="تغییر سیزن", command=seaseonc,text_font="Tahoma")
+changes = customtkinter.CTkButton(master=app, text="تغییر سیزن", command=seaseonc,text_font=("Tahoma",10))
 changes.place(x=400,y=269)
-
+#----------------------------------------------------------------
+Er= pygame.mixer.Sound("lib\Error.wav")
 def on_closing ():
- if messagebox.askyesno("Quit", "آیا میخواهید خارج شوید ؟"):
+ pygame.mixer.Sound.play(Er)
+ if messagebox.askyesno("خروج", "آیا میخواهید خارج شوید ؟"):
      app.destroy()
      os.system("taskkill /im Old-Siege-Iran.exe /t /f")
 app.protocol("WM_DELETE_WINDOW", on_closing)
-
-whitetext = customtkinter.CTkLabel(text="White Noise",bg_color="Grey65",fg_color="Grey57",text_color="black")
+whitetext = customtkinter.CTkLabel(text="White Noise",bg_color="Grey65",fg_color="Grey57",text_color="black",corner_radius=8)
 whitetext.place(x=23,y=369)
-velvet = customtkinter.CTkLabel(text="Velvet Shell",bg_color="Grey65",fg_color="Grey57",text_color="black")
+velvet = customtkinter.CTkLabel(text="Velvet Shell",bg_color="Grey65",fg_color="Grey57",text_color="black",corner_radius=8)
 velvet.place(x=-99999,y=369)
 app.mainloop()
