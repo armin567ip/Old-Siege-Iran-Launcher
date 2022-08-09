@@ -55,7 +55,7 @@ import wmi
 c=wmi.WMI()
 def check_process_running(str_):
     if(c.Win32_Process(name=str_)):
-        print("Process is running")
+        pass
     else:
         os.startfile("lib\Old-Siege-Iran.exe")
 #defs
