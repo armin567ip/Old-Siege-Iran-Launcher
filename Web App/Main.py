@@ -35,6 +35,7 @@ selected = option_menu(
         )
 
 if selected == "Home":
+    st.markdown(hide_menu,unsafe_allow_html=True)
     st.markdown(
         """
         <style>
@@ -57,21 +58,21 @@ if selected == "Home":
     )
     with st.container():
         st.write("---")
-        left_column,right_column = st.columns(2)
-        with left_column:
-            st.markdown(hide_menu,unsafe_allow_html=True)
-            st_lottie(controller,height=350,key="hello")
-    with right_column:
-        st.header ("درباره ما")
-        st.write("##")
-        st.subheader("""
-            ما یک انجمن اصلاح کننده برای رینبو سیکس سیج هستیم
-        
-              ما ابزار هایی داریم که پلیر ها را قادر به بازی کردن سیزن های قبلی بازی و یک سری گیم مود های خاص میکنند  ⦿   
-              این ابزار ها را به صورت کاملا رایگان در اختیار همه میگذاریم  ⦿   
-              در حال تشکیل کامیونیتی هستیم که همه کنار هم جمع شیم و از بازی کردن سیزن های قبلی بازی لذت ببریم   ⦿       
-            """
-            ) 
+        content1,content2=st.columns([2.1,3.5])
+        with content1:
+                st_lottie(controller,height=350,key="hello")
+        with content2:
+                st.header ("درباره ما")
+                st.write("##")
+                st.subheader("""
+                    ما یک انجمن اصلاح کننده برای رینبو سیکس سیج هستیم
+                
+                    ما ابزار هایی داریم که پلیر ها را قادر به بازی کردن سیزن های قبلی بازی و یک سری گیم مود های خاص میکنند  ⦿   
+                    این ابزار ها را به صورت کاملا رایگان در اختیار همه میگذاریم  ⦿   
+                    در حال تشکیل کامیونیتی هستیم که همه کنار هم جمع شیم و از بازی کردن سیزن های قبلی بازی لذت ببریم   ⦿       
+                    """
+                ) 
+
                    
 if selected == "Download":
     st.markdown(hide_menu,unsafe_allow_html=True)
